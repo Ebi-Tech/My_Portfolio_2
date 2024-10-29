@@ -10,6 +10,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Home | Frontend Developer & Mobile App Designer",
   description: "Portfolio showcasing Software development skills and projects",
+  icons: {
+    icon: "/h.png",
+  },
 };
 
 export default function Home() {
