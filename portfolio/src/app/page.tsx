@@ -8,9 +8,9 @@ import Skills from "@/components/home/Skills";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Home | Kernel Engineer & Full Stack Developer',
-  description: 'Portfolio showcasing kernel engineering and full-stack development projects',
-}
+  title: "Home | Frontend Developer & Mobile App Designer",
+  description: "Portfolio showcasing Software development skills and projects",
+};
 
 export default function Home() {
   return (
@@ -23,5 +23,5 @@ export default function Home() {
       <Github />
       <Contact />
     </>
-  )
+  );
 }

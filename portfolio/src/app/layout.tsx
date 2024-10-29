@@ -4,17 +4,18 @@ import Navbar from "../components/layout/Navbar";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Aspiring Linux Kernel Engineer & Full Stack Developer',
-  description: 'Experienced Full Stack Developer specializing in system programming and modern web technologies',
-}
+  title: "Aspiring Mobile App Engineer",
+  description:
+    "Experienced Full Stack Developer specializing modern Frontend web technologies",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
@@ -24,5 +25,5 @@ export default function RootLayout({
         <Footer />
       </body>
     </html>
-  )
+  );
 }

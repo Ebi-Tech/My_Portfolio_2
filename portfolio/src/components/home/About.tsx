@@ -2,8 +2,39 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-
+import { useState, useEffect } from "react";
 import { Cpu, Code2, Container, Cloud } from "lucide-react";
+
+const ProfileSlideshow = () => {
+  const images = ["/a.png", "/b.png", "/c.png", "/d.png", "/e.png", "/f.png"];
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000); // Change slide every 3 seconds
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  return (
+    <div className="aspect-square rounded-lg overflow-hidden bg-dark relative">
+      {images.map((image, index) => (
+        <Image
+          key={index}
+          src={image}
+          alt={`Slide ${index + 1}`}
+          fill
+          priority
+          className={`object-cover transition-transform duration-1000 ease-in-out ${
+            index === currentImageIndex
+              ? "opacity-100 scale-105"
+              : "opacity-0 scale-100"
+          }`}
+        />
+      ))}
+    </div>
+  );
+};
 
 export default function About() {
   const [ref, inView] = useInView({
@@ -65,15 +96,8 @@ export default function About() {
             }}
             className="relative"
           >
-            <div className="aspect-square rounded-lg overflow-hidden bg-dark relative">
-              <Image
-                src="/profile.jpeg"
-                alt="Divine - Profile Picture"
-                fill
-                priority
-                className="object-cover hover:scale-105 transition-transform duration-500"
-              />
-            </div>
+            <ProfileSlideshow />{" "}
+            {/* Updated to use the ProfileSlideshow component */}
             {/* Decorative elements */}
             <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-primary/10 rounded-lg -z-10" />
             <div className="absolute -top-6 -left-6 w-48 h-48 border border-primary/20 rounded-lg -z-10" />
