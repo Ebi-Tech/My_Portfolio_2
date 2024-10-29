@@ -125,8 +125,7 @@ export default function Experience() {
             Work <span className="gradient-text">Experience</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            My professional journey from kernel development to full-stack
-            engineering
+            My professional journey
           </p>
         </div>
 

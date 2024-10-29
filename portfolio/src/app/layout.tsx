@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "/h.png",
   },
-  title: "Home | Frontend Developer & Mobile App Designer",
+  title: "Ebi-Tech | Frontend Developer & Mobile App Designer",
   description: "Portfolio showcasing Software development skills and projects",
 };
 
