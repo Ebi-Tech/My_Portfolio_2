@@ -159,7 +159,6 @@ export default function Experience() {
                       <span>{exp.duration}</span>
                     </div>
                   </div>
-                  <ArrowUpRight className="w-5 h-5 text-primary" />
                 </div>
 
                 <p className="text-gray-300 mb-4">{exp.description}</p>

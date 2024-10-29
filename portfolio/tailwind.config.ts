@@ -8,19 +8,20 @@ const config = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#10B981', // emerald-500
-          dark: '#059669',    // emerald-600
-          light: '#34D399',   // emerald-400
+          DEFAULT: '#0079FF',   
+ // A vibrant blue
+          dark: '#0059B2', // A darker shade of blue
+          light: '#40A9FF', // A lighter shade of blue
         },
         secondary: {
-          DEFAULT: '#3B82F6', // blue-500
-          dark: '#2563EB',    // blue-600
-          light: '#60A5FA',   // blue-400
+          DEFAULT: '#8B5CF6', // A purple tone
+          dark: '#7C3AED', // A darker shade of purple
+          light: '#D6BCFA', // A lighter shade of purple
         },
         dark: {
-          DEFAULT: '#111827', // gray-900
-          lighter: '#1F2937', // gray-800
-          darker: '#030712',  // gray-950
+          DEFAULT: '#111827', // A very dark gray
+          lighter: '#212529', // A slightly lighter gray
+          darker: '#0C1014', // A darker gray
         }
       },
       animation: {

@@ -97,14 +97,14 @@ export default function Navbar() {
             ))}
             <div className="flex items-center space-x-4 ml-4">
               <a
-                href="https://github.com/Joshua-Coded"
+                href="https://github.com/Ebi-Tech"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <Github className="w-5 h-5 text-gray-400 hover:text-primary transition-colors" />
               </a>
               <a
-                href="https://www.linkedin.com/in/joshua-alana-5760b3196/"
+                href="https://www.linkedin.com/in/ebitech14/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -172,7 +172,7 @@ export default function Navbar() {
                 className="flex items-center space-x-8 pt-8"
               >
                 <a
-                  href="https://github.com/Joshua-Coded"
+                  href="https://github.com/Ebi-Tech"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-primary transition-colors"
@@ -180,7 +180,7 @@ export default function Navbar() {
                   <Github className="w-6 h-6" />
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/joshua-alana-5760b3196/"
+                  href="https://www.linkedin.com/in/ebitech14/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-primary transition-colors"
