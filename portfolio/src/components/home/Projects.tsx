@@ -116,7 +116,7 @@ export default function Projects() {
                         {lang.name}
                       </span>
                     ))}
-                    {repo.primaryLanguage && !repo.languages?.nodes?.some((l: any) => l.name === repo.primaryLanguage.name) && (
+                    {repo.primaryLanguage && !repo.languages?.nodes?.some((l: any) => l.name === repo.primaryLanguage?.name) && (
                       <span className="px-3 py-1 text-sm bg-dark rounded-full text-gray-300">
                         {repo.primaryLanguage.name}
                       </span>
