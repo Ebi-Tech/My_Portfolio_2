@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, Send } from "lucide-react";
 import { useState } from "react";
 import { useInView } from "react-intersection-observer";
+import emailjs from "@emailjs/browser";
 
 // src/components/home/Contact.tsx
 
@@ -18,10 +19,34 @@ export default function Contact() {
     message: "",
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Add your form submission logic here
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      const result = await emailjs.sendForm(
+        "service_i58pasr", // Service ID
+        "template_fuwutnv", // Template ID
+        e.target as HTMLFormElement,
+        "PfJaE_q0VQU_oGv_J" // Public Key
+      );
+
+      if (result.status === 200) {
+        setSubmitStatus("success");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -177,9 +202,39 @@ export default function Contact() {
                 />
               </div>
 
-              <button type="submit" className="btn-primary w-full">
-                <Send className="w-5 h-5" />
-                Send Message
+              {/* Status Messages */}
+              {submitStatus === "success" && (
+                <div className="p-4 bg-green-500/10 border border-green-500/20 rounded-lg">
+                  <p className="text-green-400 text-sm">
+                    Message sent successfully! I'll get back to you soon.
+                  </p>
+                </div>
+              )}
+
+              {submitStatus === "error" && (
+                <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-lg">
+                  <p className="text-red-400 text-sm">
+                    Failed to send message. Please try again or contact me directly.
+                  </p>
+                </div>
+              )}
+
+              <button 
+                type="submit" 
+                disabled={isSubmitting}
+                className="btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+              >
+                {isSubmitting ? (
+                  <>
+                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    <span>Sending...</span>
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-5 h-5" />
+                    <span>Send Message</span>
+                  </>
+                )}
               </button>
             </form>
           </motion.div>

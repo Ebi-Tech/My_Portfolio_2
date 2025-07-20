@@ -146,7 +146,7 @@ export default function Github() {
                   <div className="h-4 bg-gray-700 rounded w-1/2" />
                 </div>
               ))
-            : repos.map((repo) => (
+            : repos.map((repo, index) => (
                 <motion.a
                   key={repo.id}
                   href={repo.html_url}
@@ -156,7 +156,8 @@ export default function Github() {
                   animate={
                     inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
                   }
-                  className="card hover:border-primary/30 transition-colors"
+                  transition={{ delay: index * 0.1 }}
+                  className="card hover:border-primary/30 transition-colors block p-6 bg-gray-800/50 border border-gray-700/50 rounded-lg backdrop-blur-sm overflow-hidden"
                 >
                   <div className="flex justify-between items-start mb-4">
                     <GithubIcon className="w-6 h-6 text-primary" />
@@ -176,10 +177,10 @@ export default function Github() {
                     </div>
                   </div>
 
-                  <h3 className="text-lg font-semibold text-white mb-2">
+                  <h3 className="text-lg font-semibold text-white mb-2 break-words overflow-hidden">
                     {repo.name}
                   </h3>
-                  <p className="text-gray-400 mb-4 line-clamp-2">
+                  <p className="text-gray-400 mb-4 line-clamp-2 break-words">
                     {repo.description || "No description available"}
                   </p>
 
